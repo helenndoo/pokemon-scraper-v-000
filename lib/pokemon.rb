@@ -11,10 +11,9 @@ class Pokemon
     @name = name
     @type = type
     @db = db
-    @hp = hp
   end
 
-  def self.find(id, db)
+  def self.find(num, db)
     data = db.execute("SELECT * FROM pokemon WHERE id = ?", id).flatten
 
     self.new(id: data[0], name: data[1], type: data[2], db:db, hp: data[4])
